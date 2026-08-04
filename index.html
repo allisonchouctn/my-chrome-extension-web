@@ -83,7 +83,7 @@
       margin-bottom: 0;
     }
 
-    /* 安裝指南 (拉至上方) */
+    /* 安裝指南 (置頂區塊) */
     .install-section {
       max-width: 900px;
       margin: 2rem auto;
@@ -114,7 +114,7 @@
     /* 展示 Mockup 區塊 */
     .showcase-container {
       max-width: 1000px;
-      margin: 2.5rem auto;
+      margin: 2.5rem auto 1.5rem;
       display: flex;
       justify-content: center;
       padding: 0 1rem;
@@ -136,13 +136,34 @@
       display: block;
     }
 
+    /* 操作流程簡介卡片 (放置於介面截圖下方) */
+    .how-to-box-container {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+
+    .how-to-box {
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(238, 77, 45, 0.3);
+      box-shadow: 0 4px 12px rgba(238, 77, 45, 0.05);
+    }
+
+    .how-to-box h4 {
+      margin: 0 0 0.8rem 0;
+      color: var(--primary-orange);
+      font-size: 1.1rem;
+    }
+
     /* 賣點特點區 Grid */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
-      max-width: 950px;
-      margin: 3rem auto;
+      max-width: 900px;
+      margin: 0 auto 4rem;
       padding: 0 1rem;
     }
 
@@ -165,21 +186,6 @@
       font-size: 1.25rem;
     }
 
-    /* 滿版亮點卡片 (用於熱門討論精準過濾) */
-    .feature-card-full {
-      grid-column: 1 / -1;
-      background: var(--light-orange);
-      border: 1px solid rgba(238, 77, 45, 0.3);
-    }
-
-    .how-to-box {
-      background: white;
-      padding: 1.2rem;
-      border-radius: 8px;
-      border: 1px solid #EAEAEA;
-      margin-top: 1rem;
-    }
-
     footer {
       text-align: center;
       padding: 2rem;
@@ -198,11 +204,11 @@
   </header>
 
   <section class="hero">
-    <h1>一鍵鎖定 Top 5 熱門品牌聲量與市場焦點</h1>
-    <p>為了解市場趨勢打造的chrome擴充套件，自動彙整聲量 Top 5 品牌、焦點促銷話題與精準新聞連結。</p>
+    <h1>熱門品牌聲量與市場趨勢</h1>
+    <p>為了解市場趨勢打造的 Chrome 擴充套件，自動彙整聲量 Top 5 品牌、焦點促銷話題與精準新聞連結。</p>
   </section>
 
-  <!-- 🛠️ 3 步驟快速安裝 Extension (置頂區塊) -->
+  <!-- 1. 🛠️ 3 步驟快速安裝 Extension -->
   <section class="install-section" id="install">
     <h2>🛠️ 3 步驟快速安裝 Extension</h2>
     <ol class="install-steps">
@@ -212,7 +218,7 @@
     </ol>
   </section>
 
-  <!-- 展示區：擴充套件截圖 -->
+  <!-- 2. 展示區：擴充套件截圖 -->
   <div class="showcase-container">
     <div class="extension-mockup">
       <!-- 請將路徑更換為你在 GitHub 上傳的截圖檔案路徑 -->
@@ -220,36 +226,36 @@
     </div>
   </div>
 
-  <!-- 特色賣點 -->
+  <!-- 3. 💡 操作流程簡介 (置於安裝教學與畫面截圖下方) -->
+  <div class="how-to-box-container">
+    <div class="how-to-box">
+      <h4>💡 操作流程簡介：</h4>
+      <ol style="margin: 0; padding-left: 1.2rem; color: var(--text-gray); font-size: 0.95rem; line-height: 1.8;">
+        <li><b>設定條件</b>：開啟套件，選擇欲分析的日期區間與商品類別。</li>
+        <li><b>自動過濾</b>：按下「開始分析」，系統自動算出當期 Top 5 聲量品牌。</li>
+        <li><b>直達高價值討論</b>：於「相關熱門討論連結」區塊點擊標題，直達 100% 聚焦於 Top 5 品牌的高質量文章！</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 4. 特色賣點 -->
   <section class="features-grid">
     <div class="feature-card">
       <div class="icon">🔥</div>
-      <h3>Top 5 熱門品牌一</h3>
+      <h3>Top 5 熱門品牌榜</h3>
       <p>自動將品牌歸類，統計在日期範圍區間品牌討論排行與次數。</p>
     </div>
 
     <div class="feature-card">
       <div class="icon">🎉</div>
       <h3>焦點話題摘要</h3>
-      <p>鎖定包含促銷,新品及品牌等關鍵字的黃金句子，掌握各品牌最新活動與折扣。</p>
+      <p>鎖定包含促銷、新品及品牌等關鍵字的黃金句子，掌握各品牌最新活動與折扣。</p>
     </div>
 
     <div class="feature-card">
       <div class="icon">🔗</div>
       <h3>熱門新聞推薦</h3>
-      <p>系統自動以當期算出之「Top 5 熱門品牌名單」，僅保留品牌直接相關的新聞討論。</p>
-    </div>
-
-          <div class="how-to-box">
-            <h4 style="margin: 0 0 0.5rem 0; color: var(--text-dark); font-size: 0.95rem;">💡 操作流程簡介：</h4>
-            <ol style="margin: 0; padding-left: 1.2rem; color: var(--text-gray); font-size: 0.9rem; line-height: 1.8;">
-              <li><b>設定條件</b>：開啟套件，選擇欲分析的日期區間與商品類別。</li>
-              <li><b>自動過濾</b>：按下「開始分析」，系統自動算出當期 Top 5 聲量品牌。</li>
-              <li><b>直達高價值討論</b>：於「相關熱門討論連結」區塊點擊標題，直達 100% 聚焦於 Top 5 品牌的高質量文章！</li>
-            </ol>
-          </div>
-        </div>
-      </div>
+      <p>系統自動以當期算出之「Top 5 熱門品牌名單」，僅保留與品牌直接相關的新聞討論。</p>
     </div>
   </section>
 
