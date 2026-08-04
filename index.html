@@ -3,66 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>市場趨勢 AI 助手 - Chrome 擴充套件</title>
+  <title>Market Trends Monitor - 市場趨勢 AI 監測助手</title>
   <style>
-    :root { --primary-color: #4F46E5; --bg-color: #F9FAFB; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: #1F2937; line-height: 1.6; }
-    header { background: white; border-bottom: 1px solid #E5E7EB; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-weight: bold; font-size: 1.25rem; color: var(--primary-color); }
-    .hero { text-align: center; padding: 4rem 1rem 3rem; max-width: 800px; margin: 0 auto; }
-    .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; color: #111827; }
-    .hero p { font-size: 1.1rem; color: #4B5563; margin-bottom: 2rem; }
-    .cta-btn { background-color: var(--primary-color); color: white; padding: 0.8rem 1.8rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; display: inline-block; transition: background 0.2s; }
-    .cta-btn:hover { background-color: #4338CA; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
-    .feature-card { background: white; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #E5E7EB; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-    .feature-card h3 { color: var(--primary-color); margin-top: 0; }
-    .install-guide { max-width: 800px; margin: 2rem auto; padding: 2rem 1rem; background: white; border-radius: 0.75rem; border: 1px solid #E5E7EB; }
-    .install-guide h2 { text-align: center; color: #111827; }
-    .install-guide ol { padding-left: 1.5rem; color: #4B5563; }
-    footer { text-align: center; padding: 2rem; border-top: 1px solid #E5E7EB; margin-top: 4rem; font-size: 0.875rem; color: #6B7280; }
+    :root {
+      --primary-orange: #EE4D2D;
+      --primary-hover: #D73211;
+      --light-orange: #FFF1ED;
+      --bg-color: #F6F8FA;
+      --card-bg: #FFFFFF;
+      --text-dark: #1F2937;
+      --text-gray: #4B5563;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: white;
+      border-bottom: 2px solid var(--primary-orange);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: var(--primary-orange);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta-btn {
+      background-color: var(--primary-orange);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(238, 77, 45, 0.2);
+    }
+
+    .cta-btn:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-gray);
+      margin-bottom: 2rem;
+    }
+
+    /* 展示 Mockup 區塊 */
+    .showcase-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      display: flex;
+      justify-content: center;
+      padding: 0 1rem;
+    }
+
+    .extension-mockup {
+      background: white;
+      padding: 12px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border: 1px solid #E5E7EB;
+      width: 380px; /* 貼近真實 Extension Popup 寬度 */
+    }
+
+    .extension-mockup img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* 賣點特點區 */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid #E5E7EB;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    .feature-card .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      color: var(--primary-orange);
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    /* 安裝指南 */
+    .install-section {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 2.5rem 2rem;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #E5E7EB;
+    }
+
+    .install-section h2 {
+      text-align: center;
+      margin-top: 0;
+      color: var(--text-dark);
+    }
+
+    .install-steps {
+      padding-left: 1.5rem;
+      color: var(--text-gray);
+    }
+
+    .install-steps li {
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid #E5E7EB;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #9CA3AF;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">🚀 市場趨勢 AI 助手</div>
-    <a href="#install" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">免費安裝</a>
+    <div class="logo">📈 Market Trends Monitor</div>
+    <a href="#install" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">免費下載</a>
   </header>
 
   <section class="hero">
-    <h1>一鍵掌握近 3 天熱門品牌與焦點市場情報</h1>
-    <p>專為市場分析師與採購設計的 Chrome 擴充套件，自動彙整聲量 Top 5 品牌、焦點促銷話題與精準新聞連結。</p>
-    <a href="#install" class="cta-btn">查看安裝教學</a>
+    <h1>一鍵鎖定 Top 5 熱門品牌聲量與市場焦點</h1>
+    <p>專為市場分析與採購團隊打造。自動歸一品牌別名、精準萃取促銷情報，並剔除無關雜訊連結。</p>
+    <a href="#install" class="cta-btn">立即查看安裝教學</a>
   </section>
 
-  <section class="features">
+  <!-- 展示區：放你剛剛截圖的 Extension 畫面 -->
+  <div class="showcase-container">
+    <div class="extension-mockup">
+      <!-- 請上傳你的截圖並更換此處路徑，如 images/preview.png -->
+      <img src="images/preview.png" alt="Market Trends Monitor 擴充套件介面">
+    </div>
+  </div>
+
+  <!-- 特色賣點 -->
+  <section class="features-grid">
     <div class="feature-card">
-      <h3>🏆 Top 5 熱門品牌榜</h3>
-      <p>自動合併同義詞品牌（如 adidas、愛迪達），精準計算近 3 天討論聲量排行。</p>
+      <div class="icon">🔥</div>
+      <h3>Top 5 聲量自動歸一</h3>
+      <p>自動將愛迪達/adidas、麥當勞/McDonalds 等同義詞歸一化，精準統計近 3 天討論排行與次數。</p>
     </div>
     <div class="feature-card">
-      <h3>🎉 品牌專屬焦點摘要</h3>
-      <p>智慧擷取包含 Top 5 品牌的黃金促銷與新品句子，讓焦點情報 100% 鎖定市場主角。</p>
+      <div class="icon">🎉</div>
+      <h3>品牌專屬促銷摘要</h3>
+      <p>智慧鎖定包含促銷與新品關鍵字的黃金句子，一秒掌握各大品牌最新大事件與折扣。</p>
     </div>
     <div class="feature-card">
-      <h3>🔗 熱門新聞精準推薦</h3>
-      <p>實施嚴格過濾機制，僅保留與 Top 5 熱門品牌直接相關的高品質新聞討論。</p>
+      <h3>🔗 熱門討論精準過濾</h3>
+      <p>實施硬性門檻！非 Top 5 熱門品牌的新聞與討論一律剔除，讓你看到的都是高純度情報。</p>
     </div>
   </section>
 
-  <section class="install-guide" id="install">
-    <h2>🛠️ 開發者模式安裝指南</h2>
-    <ol>
-      <li>下載專案程式碼 ZIP 包並解壓縮至本機。</li>
-      <li>開啟 Chrome 瀏覽器，於網址列輸入 <code>chrome://extensions/</code>。</li>
-      <li>開啟右上角的<b>「開發者模式」</b>開關。</li>
-      <li>點擊左上角<b>「載入未打包項目」</b>，選擇解壓縮後的擴充套件資料夾即可完成安裝！</li>
+  <!-- 安裝說明 -->
+  <section class="install-section" id="install">
+    <h2>🛠️ 3 步驟快速安裝 Extension</h2>
+    <ol class="install-steps">
+      <li><b>下載專案檔</b>：點擊頁面上方按鈕下載 GitHub 儲存庫 ZIP 包並解壓縮。</li>
+      <li><b>開啟開發者模式</b>：開啟 Chrome，在網址列輸入 <code>chrome://extensions/</code> 並開啟右上角「開發者模式」。</li>
+      <li><b>載入套件</b>：點擊左上角「載入未打包項目」，選擇解壓後的資料夾即可啟動！</li>
     </ol>
   </section>
 
   <footer>
-    © 2026 市場趨勢 AI 助手. Hosted on GitHub Pages.
+    © 2026 Market Trends Monitor. Hosted with ❤️ on GitHub Pages.
   </footer>
 
 </body>
