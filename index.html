@@ -6,13 +6,19 @@
   <title>Market Trends Monitor - 市場趨勢 AI 監測助手</title>
   <style>
     :root {
-      --primary-orange: #EE4D2D;
+      --primary-orange: #EE4D2D; /* 蝦皮橘主色 */
       --primary-hover: #D73211;
-      --light-orange: #FFF1ED;
+      --light-orange: #FFF1ED; /* 淡橘色背景 */
       --bg-color: #F6F8FA;
       --card-bg: #FFFFFF;
       --text-dark: #1F2937;
       --text-gray: #4B5563;
+      /* 統一的橘色邊框樣式 */
+      --orange-border: 1px solid rgba(238, 77, 45, 0.3);
+      /* 統一的柔和陰影 */
+      --card-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      /* 介面展示區強化的陰影 */
+      --showcase-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
 
     body {
@@ -24,6 +30,7 @@
       line-height: 1.6;
     }
 
+    /* 導覽列優化 */
     header {
       background: white;
       border-bottom: 2px solid var(--primary-orange);
@@ -34,6 +41,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
 
     .logo {
@@ -45,6 +53,7 @@
       gap: 8px;
     }
 
+    /* CTA 按鈕優化 */
     .cta-btn {
       background-color: var(--primary-orange);
       color: white;
@@ -62,43 +71,56 @@
       transform: translateY(-2px);
     }
 
-    /* Hero Section */
+    /* Hero Section 優化 */
     .hero {
       text-align: center;
-      padding: 3.5rem 1rem 1.5rem;
+      padding: 4rem 1rem 2rem;
       max-width: 850px;
       margin: 0 auto;
     }
 
     .hero h1 {
-      font-size: 2.5rem;
-      color: var(--text-dark);
+      font-size: 2.8rem;
+      color: var(--primary-orange); /* 統一標題為橘色 */
       margin-bottom: 1rem;
       line-height: 1.2;
     }
 
     .hero p {
-      font-size: 1.15rem;
+      font-size: 1.2rem; /* 稍微放大副標題 */
       color: var(--text-gray);
       margin-bottom: 0;
     }
 
-    /* 1. 安裝指南 */
-    .install-section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem;
+    /* 統一所有區塊標題樣式 (除了 Hero h1) */
+    h2, h3, h4 {
+      color: var(--primary-orange) !important;
+      margin-top: 0;
+    }
+
+    /* 統一卡片基礎樣式 */
+    .card-base {
       background: white;
       border-radius: 12px;
       border: 1px solid #E5E7EB;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      box-shadow: var(--card-shadow);
+      margin-bottom: 2rem;
     }
 
-    .install-section h2 {
-      text-align: center;
-      margin-top: 0;
-      color: var(--text-dark);
-      font-size: 1.5rem;
+    /* 統一橘色邊框卡片樣式 (用於安裝教學與操作流程) */
+    .orange-card-base {
+      background-color: var(--light-orange);
+      border: var(--orange-border);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(238, 77, 45, 0.05);
+      margin-bottom: 2rem;
+    }
+
+    /* 1. 安裝指南優化 (使用橘色邊框樣式) */
+    .install-section {
+      max-width: 900px;
+      margin: 2rem auto;
     }
 
     .install-steps {
@@ -111,10 +133,10 @@
       margin-bottom: 0.8rem;
     }
 
-    /* 展示 Mockup 捲動區塊 */
+    /* 介面展示 Mockup 區塊優化 */
     .showcase-container {
       max-width: 1000px;
-      margin: 2.5rem auto 1.5rem;
+      margin: 3rem auto;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -122,7 +144,7 @@
     }
 
     .showcase-title {
-      color: var(--text-dark);
+      color: var(--primary-orange); /* 修正為橘色字體 */
       margin-bottom: 1rem;
       font-size: 1.2rem;
       font-weight: 600;
@@ -132,11 +154,11 @@
       background: white;
       padding: 0;
       border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      box-shadow: var(--showcase-shadow); /* 使用強化的陰影 */
       border: 1px solid #E5E7EB;
-      width: 380px; /* 擴充套件 popup 常用寬度 */
-      height: 550px; /* 設定視窗高度，產生捲動效果 */
-      overflow-y: auto; /* 允許垂直捲動 */
+      width: 380px; 
+      height: 550px; 
+      overflow-y: auto; 
       display: flex;
       flex-direction: column;
     }
@@ -162,43 +184,34 @@
       border-radius: 4px;
     }
 
-    /* 💡 操作流程簡介卡片 */
+    /* 💡 操作流程簡介卡片優化 (已在橘色邊框樣式中) */
     .how-to-box-container {
       max-width: 900px;
       margin: 0 auto 3rem;
       padding: 0 1rem;
     }
 
-    .how-to-box {
-      background: white;
-      padding: 1.5rem 2rem;
-      border-radius: 12px;
-      border: 1px solid rgba(238, 77, 45, 0.3);
-      box-shadow: 0 4px 12px rgba(238, 77, 45, 0.05);
-    }
-
-    .how-to-box h4 {
-      margin: 0 0 0.8rem 0;
-      color: var(--primary-orange);
-      font-size: 1.1rem;
-    }
-
-    /* 特色賣點 Grid */
+    /* 特色賣點 Grid 優化 */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      max-width: 900px;
+      max-width: 950px;
       margin: 0 auto 4rem;
       padding: 0 1rem;
     }
 
     .feature-card {
       background: white;
-      padding: 1.8rem;
+      padding: 2rem;
       border-radius: 12px;
       border: 1px solid #E5E5E5;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
     }
 
     .feature-card .icon {
@@ -206,15 +219,9 @@
       margin-bottom: 0.8rem;
     }
 
-    .feature-card h3 {
-      color: var(--primary-orange);
-      margin-top: 0;
-      font-size: 1.25rem;
-    }
-
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 3rem;
       border-top: 1px solid #E5E7EB;
       margin-top: 4rem;
       font-size: 0.9rem;
@@ -226,48 +233,40 @@
 
   <header>
     <div class="logo">📈 Market Trends Monitor</div>
-    <!-- 
-      👉 👉 修改重點 1：修復按鈕下載功能
-      將 href 直接指向你上傳到同一個 root 資料夾的 ZIP 檔名（不需要 #install 錨點了）。
-      加上 download 屬性可以強制下載。
-    -->
     <a href="extension.zip" download class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">快速安裝</a>
   </header>
 
   <section class="hero">
     <h1>熱門品牌聲量與市場趨勢</h1>
-    <p>為了解市場趨勢打造的 Chrome 擴充套件，自動彙整聲量 Top 5 品牌、焦點促銷話題與精準新聞連結。</p>
+    <p>了解市場趨勢打造的 Chrome 擴充套件，自動彙整聲量 Top 5 品牌、焦點促銷話題與精準新聞連結。</p>
   </section>
 
-  <!-- 1. 🛠️ 3 步驟快速安裝 Extension -->
+  <!-- 1. 🛠️ 3 步驟快速安裝 Extension (修正為橘色邊框背景樣式) -->
   <section class="install-section" id="install">
-    <h2>🛠️ 3 步驟快速安裝 Extension</h2>
-    <ol class="install-steps">
-      <!-- 同步修改說明，因為按鈕按下會直接下載 -->
-      <li><b>下載 ZIP 包</b>：點擊上方導覽列「快速安裝」按鈕下載最新版 ZIP 包。</li>
-      <li><b>開啟開發者模式</b>：開啟 Chrome，在網址列輸入 <code>chrome://extensions/</code> 並開啟右上角「開發者模式」。</li>
-      <li><b>載入套件</b>：解壓縮 ZIP 包。點擊 Chrome「載入未打包項目」並選擇解壓後的資料夾即可啟動！</li>
-    </ol>
+    <div class="orange-card-base">
+      <h2 style="text-align: center;">🛠️ 3 步驟快速安裝 Extension</h2>
+      <ol class="install-steps">
+        <li><b>下載 ZIP 包</b>：點擊上方導覽列「快速安裝」按鈕下載最新版 ZIP 包。</li>
+        <li><b>開啟開發者模式</b>：開啟 Chrome，在網址列輸入 <code>chrome://extensions/</code> 並開啟右上角「開發者模式」。</li>
+        <li><b>載入套件</b>：解壓縮 ZIP 包。點擊 Chrome「載入未打包項目」並選擇解壓後的資料夾即可啟動！</li>
+      </ol>
+    </div>
   </section>
 
-  <!-- 
-    👉 👉 修改重點 2：修復圖片不顯示問題
-    我重新優化了展示區塊，利用一個捲動視窗模擬彈窗效果，並合併了你提供的兩張截圖。
-  -->
+  <!-- 介面展示區塊 -->
   <div class="showcase-container">
     <div class="showcase-title">Market Trends Monitor 擴充套件介面</div>
     <div class="extension-mockup-viewport">
-      <!-- 💡 將圖片路徑修正為你在 root 目錄上傳的正確檔名 -->
-      <!-- 分析設定與熱門品牌榜 (上半部) -->
-      <img src="extension_sc_1.png" alt="擴充套件介面截圖 1 - 分析設定與聲量榜">
-      <!-- 焦點話題與討論連結 (下半部) -->
-      <img src="extension_sc_2.png" alt="擴充套件介面截圖 2 - 焦點摘要與熱門連結">
+      <!-- 截圖 1 - 分析設定與聲量榜 -->
+      <img src="extension_sc_1.png" alt="擴充套件介面截圖 1">
+      <!-- 截圖 2 - 焦點摘要與熱門連結 -->
+      <img src="extension_sc_2.png" alt="擴充套件介面截圖 2">
     </div>
   </div>
 
-  <!-- 3. 💡 操作流程簡介 (置於畫面截圖下方) -->
+  <!-- 3. 💡 操作流程簡介 (置於畫面截圖下方，保持橘色邊框背景樣式) -->
   <div class="how-to-box-container">
-    <div class="how-to-box">
+    <div class="orange-card-base">
       <h4>💡 操作流程簡介：</h4>
       <ol style="margin: 0; padding-left: 1.2rem; color: var(--text-gray); font-size: 0.95rem; line-height: 1.8;">
         <li><b>設定條件</b>：開啟套件，選擇欲分析的日期區間與商品類別。</li>
@@ -277,7 +276,7 @@
     </div>
   </div>
 
-  <!-- 4. 特色賣點 -->
+  <!-- 4. 特色賣點 (統一標題為橘色) -->
   <section class="features-grid">
     <div class="feature-card">
       <div class="icon">🔥</div>
