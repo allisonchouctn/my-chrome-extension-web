@@ -45,9 +45,6 @@
       gap: 8px;
     }
 
-    /* 
-      👉 這裡控制導覽列「快速安裝」按鈕的樣式
-    */
     .cta-btn {
       background-color: var(--primary-orange);
       color: white;
@@ -114,10 +111,7 @@
       margin-bottom: 0.8rem;
     }
 
-    /* 
-      👉 重點優化：展示 Mockup 區塊
-      讓它看起來像一個可以捲動的視窗，展示完整的介面長圖。
-    */
+    /* 展示 Mockup 捲動區塊 */
     .showcase-container {
       max-width: 1000px;
       margin: 2.5rem auto 1.5rem;
@@ -140,14 +134,22 @@
       border-radius: 16px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.08);
       border: 1px solid #E5E7EB;
-      width: 380px; /* 擴充套件的常見寬度 */
-      height: 600px; /* 設定一個視窗高度 */
-      overflow-y: scroll; /* 允許垂直捲動 */
+      width: 380px; /* 擴充套件 popup 常用寬度 */
+      height: 550px; /* 設定視窗高度，產生捲動效果 */
+      overflow-y: auto; /* 允許垂直捲動 */
       display: flex;
       flex-direction: column;
     }
 
-    /* 美化捲動條 (選用，讓它看起來更現代) */
+    .extension-mockup-viewport img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 自訂捲動條樣式 (選用) */
     .extension-mockup-viewport::-webkit-scrollbar {
       width: 8px;
     }
@@ -158,17 +160,6 @@
     .extension-mockup-viewport::-webkit-scrollbar-thumb {
       background: #ccc;
       border-radius: 4px;
-    }
-    .extension-mockup-viewport::-webkit-scrollbar-thumb:hover {
-      background: #aaa;
-    }
-
-    .extension-mockup-viewport img {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0;
-      padding: 0;
     }
 
     /* 💡 操作流程簡介卡片 */
@@ -236,14 +227,11 @@
   <header>
     <div class="logo">📈 Market Trends Monitor</div>
     <!-- 
-      👉 如何讓按鈕可以下載：
-      將 href 指向你的擴充套件 ZIP 檔案路徑。
-      添加 download 屬性可以強制瀏覽器下載而不是打開。
-      
-      修改範例：
-      <a href="path/to/your/market_trends_monitor.zip" download class="cta-btn">快速安裝</a>
+      👉 👉 修改重點 1：修復按鈕下載功能
+      將 href 直接指向你上傳到同一個 root 資料夾的 ZIP 檔名（不需要 #install 錨點了）。
+      加上 download 屬性可以強制下載。
     -->
-    <a href="#install" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">快速安裝</a>
+    <a href="extension.zip" download class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">快速安裝</a>
   </header>
 
   <section class="hero">
@@ -251,39 +239,40 @@
     <p>為了解市場趨勢打造的 Chrome 擴充套件，自動彙整聲量 Top 5 品牌、焦點促銷話題與精準新聞連結。</p>
   </section>
 
-  <!-- 1. 🛠️ 安裝指南 -->
+  <!-- 1. 🛠️ 3 步驟快速安裝 Extension -->
   <section class="install-section" id="install">
     <h2>🛠️ 3 步驟快速安裝 Extension</h2>
     <ol class="install-steps">
-      <li><b>下載專案檔</b>：點擊上方導覽列「快速安裝」按鈕下載 ZIP 包並解壓縮至本機。</li>
+      <!-- 同步修改說明，因為按鈕按下會直接下載 -->
+      <li><b>下載 ZIP 包</b>：點擊上方導覽列「快速安裝」按鈕下載最新版 ZIP 包。</li>
       <li><b>開啟開發者模式</b>：開啟 Chrome，在網址列輸入 <code>chrome://extensions/</code> 並開啟右上角「開發者模式」。</li>
-      <li><b>載入套件</b>：點擊左上角「載入未打包項目」，選擇解壓後的資料夾即可啟動！</li>
+      <li><b>載入套件</b>：解壓縮 ZIP 包。點擊 Chrome「載入未打包項目」並選擇解壓後的資料夾即可啟動！</li>
     </ol>
   </section>
 
   <!-- 
-    👉 2. 展示區：擴充套件介面
-    我將原本的單張圖片改為一個捲動視窗，並合併了你提供的兩張截圖。
+    👉 👉 修改重點 2：修復圖片不顯示問題
+    我重新優化了展示區塊，利用一個捲動視窗模擬彈窗效果，並合併了你提供的兩張截圖。
   -->
   <div class="showcase-container">
     <div class="showcase-title">Market Trends Monitor 擴充套件介面</div>
     <div class="extension-mockup-viewport">
-      <!-- 請將圖片檔案放在你的專案資料夾中，並更新路徑 -->
-      <!-- 這是第一張截圖 -->
-      <img src="images/extension_sc_1.png" alt="擴充套件介面截圖 1 - 分析設定與熱門品牌">
-      <!-- 這是第二張截圖 (會緊接著第一張顯示，形成長圖) -->
-      <img src="images/extension_sc_2.png" alt="擴充套件介面截圖 2 - 焦點話題與討論連結">
+      <!-- 💡 將圖片路徑修正為你在 root 目錄上傳的正確檔名 -->
+      <!-- 分析設定與熱門品牌榜 (上半部) -->
+      <img src="extension_sc_1.png" alt="擴充套件介面截圖 1 - 分析設定與聲量榜">
+      <!-- 焦點話題與討論連結 (下半部) -->
+      <img src="extension_sc_2.png" alt="擴充套件介面截圖 2 - 焦點摘要與熱門連結">
     </div>
   </div>
 
-  <!-- 3. 💡 操作流程簡介 -->
+  <!-- 3. 💡 操作流程簡介 (置於畫面截圖下方) -->
   <div class="how-to-box-container">
     <div class="how-to-box">
       <h4>💡 操作流程簡介：</h4>
       <ol style="margin: 0; padding-left: 1.2rem; color: var(--text-gray); font-size: 0.95rem; line-height: 1.8;">
         <li><b>設定條件</b>：開啟套件，選擇欲分析的日期區間與商品類別。</li>
         <li><b>自動過濾</b>：按下「開始分析」，系統自動算出當期 Top 5 聲量品牌。</li>
-        <li><b>直達高價值討論</b>：於「相關熱門討論連結」區塊點擊標題，直達 100% 聚焦於 Top 5 品牌的高質量文章！</li>
+        <li><b>直達高價值討論</b>：於「相關熱門討論連結」區塊點擊標題，聚焦於 Top 5 品牌的文章！</li>
       </ol>
     </div>
   </div>
