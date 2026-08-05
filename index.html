@@ -98,15 +98,6 @@
       margin-top: 0;
     }
 
-    /* 統一卡片基礎樣式 */
-    .card-base {
-      background: white;
-      border-radius: 12px;
-      border: 1px solid #E5E7EB;
-      box-shadow: var(--card-shadow);
-      margin-bottom: 2rem;
-    }
-
     /* 統一橘色邊框卡片樣式 (用於安裝教學與操作流程) */
     .orange-card-base {
       background-color: var(--light-orange);
@@ -201,16 +192,18 @@
       padding: 0 1rem;
     }
 
+    /* 特色賣點卡片統一使用橘色細邊框 */
     .feature-card {
       background: white;
       padding: 2rem;
       border-radius: 12px;
-      border: 1px solid #E5E5E5;
+      border: var(--orange-border); /* 使用統一的橘色邊框樣式 */
       box-shadow: var(--card-shadow);
-      transition: all 0.3s;
+      transition: all 0.3s; /* 確保懸浮效果平滑 */
     }
+    /* 👉 👉 將懸浮時的位移效果放回來 */
     .feature-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px); /* 向上懸浮位移 */
       box-shadow: 0 8px 24px rgba(0,0,0,0.05);
     }
 
@@ -276,7 +269,7 @@
     </div>
   </div>
 
-  <!-- 4. 特色賣點 (統一標題為橘色) -->
+  <!-- 4. 特色賣點 (標題與邊框均統一為橘色系，並包含懸浮位移效果) -->
   <section class="features-grid">
     <div class="feature-card">
       <div class="icon">🔥</div>
