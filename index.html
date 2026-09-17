@@ -13,11 +13,8 @@
       --card-bg: #FFFFFF;
       --text-dark: #1F2937;
       --text-gray: #4B5563;
-      /* 統一的橘色邊框樣式 */
       --orange-border: 1px solid rgba(238, 77, 45, 0.3);
-      /* 統一的柔和陰影 */
       --card-shadow: 0 4px 12px rgba(0,0,0,0.03);
-      /* 介面展示區強化的陰影 */
       --showcase-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
 
@@ -30,7 +27,7 @@
       line-height: 1.6;
     }
 
-    /* 導覽列優化 */
+    /* 導覽列 */
     header {
       background: white;
       border-bottom: 2px solid var(--primary-orange);
@@ -53,7 +50,6 @@
       gap: 8px;
     }
 
-    /* CTA 按鈕優化 */
     .cta-btn {
       background-color: var(--primary-orange);
       color: white;
@@ -71,7 +67,7 @@
       transform: translateY(-2px);
     }
 
-    /* Hero Section 優化 */
+    /* Hero Section */
     .hero {
       text-align: center;
       padding: 4rem 1rem 2rem;
@@ -81,24 +77,22 @@
 
     .hero h1 {
       font-size: 2.8rem;
-      color: var(--primary-orange); /* 統一標題為橘色 */
+      color: var(--primary-orange);
       margin-bottom: 1rem;
       line-height: 1.2;
     }
 
     .hero p {
-      font-size: 1.2rem; /* 稍微放大副標題 */
+      font-size: 1.2rem;
       color: var(--text-gray);
       margin-bottom: 0;
     }
 
-    /* 統一所有區塊標題樣式 (除了 Hero h1) */
     h2, h3, h4 {
       color: var(--primary-orange) !important;
       margin-top: 0;
     }
 
-    /* 統一橘色邊框卡片樣式 (用於安裝教學與操作流程) */
     .orange-card-base {
       background-color: var(--light-orange);
       border: var(--orange-border);
@@ -108,7 +102,7 @@
       margin-bottom: 2rem;
     }
 
-    /* 1. 安裝指南優化 (使用橘色邊框樣式) */
+    /* 安裝指南 */
     .install-section {
       max-width: 900px;
       margin: 2rem auto;
@@ -124,7 +118,7 @@
       margin-bottom: 0.8rem;
     }
 
-    /* 介面展示 Mockup 區塊優化 */
+    /* 介面展示區塊 */
     .showcase-container {
       max-width: 1000px;
       margin: 3rem auto;
@@ -135,7 +129,7 @@
     }
 
     .showcase-title {
-      color: var(--primary-orange); /* 修正為橘色字體 */
+      color: var(--primary-orange);
       margin-bottom: 1rem;
       font-size: 1.2rem;
       font-weight: 600;
@@ -145,7 +139,7 @@
       background: white;
       padding: 0;
       border-radius: 16px;
-      box-shadow: var(--showcase-shadow); /* 使用強化的陰影 */
+      box-shadow: var(--showcase-shadow);
       border: 1px solid #E5E7EB;
       width: 380px; 
       height: 550px; 
@@ -162,7 +156,6 @@
       padding: 0;
     }
 
-    /* 自訂捲動條樣式 (選用) */
     .extension-mockup-viewport::-webkit-scrollbar {
       width: 8px;
     }
@@ -175,41 +168,56 @@
       border-radius: 4px;
     }
 
-    /* 💡 操作流程簡介卡片優化 (已在橘色邊框樣式中) */
+    /* 操作流程卡片 */
     .how-to-box-container {
       max-width: 900px;
       margin: 0 auto 3rem;
       padding: 0 1rem;
     }
 
-    /* 特色賣點 Grid 優化 */
+    /* 特色賣點 Grid（修復版 2x2 佈局） */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr); /* 預設雙欄整齊對齊 */
       gap: 1.5rem;
-      max-width: 950px;
+      max-width: 900px;
       margin: 0 auto 4rem;
       padding: 0 1rem;
     }
 
-    /* 特色賣點卡片統一使用橘色細邊框 */
     .feature-card {
       background: white;
       padding: 2rem;
       border-radius: 12px;
-      border: var(--orange-border); /* 使用統一的橘色邊框樣式 */
+      border: var(--orange-border);
       box-shadow: var(--card-shadow);
-      transition: all 0.3s; /* 確保懸浮效果平滑 */
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
     }
-    /* 👉 👉 將懸浮時的位移效果放回來 */
+
     .feature-card:hover {
-      transform: translateY(-5px); /* 向上懸浮位移 */
+      transform: translateY(-5px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.05);
     }
 
     .feature-card .icon {
       font-size: 2rem;
       margin-bottom: 0.8rem;
+    }
+
+    /* 響應式調整 */
+    @media (min-width: 1024px) {
+      .features-grid {
+        max-width: 1100px;
+        grid-template-columns: repeat(4, 1fr); /* 寬螢幕會均分為單行 4 欄 */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .features-grid {
+        grid-template-columns: 1fr; /* 手機螢幕切為單欄 */
+      }
     }
 
     footer {
@@ -234,7 +242,7 @@
     <p>了解市場趨勢打造的 Chrome 擴充套件，自動彙整聲量 Top 5 品牌、焦點促銷話題與精準新聞連結。</p>
   </section>
 
-  <!-- 1. 🛠️ 3 步驟快速安裝 Extension (修正為橘色邊框背景樣式) -->
+  <!-- 1. 安裝教學 -->
   <section class="install-section" id="install">
     <div class="orange-card-base">
       <h2 style="text-align: center;">🛠️ 3 步驟快速安裝 Extension</h2>
@@ -246,18 +254,16 @@
     </div>
   </section>
 
-  <!-- 介面展示區塊 -->
+  <!-- 2. 介面展示區塊 -->
   <div class="showcase-container">
     <div class="showcase-title">Market Trends Monitor 擴充套件介面</div>
     <div class="extension-mockup-viewport">
-      <!-- 截圖 1 - 分析設定與聲量榜 -->
       <img src="extension_sc_1.png" alt="擴充套件介面截圖 1">
-      <!-- 截圖 2 - 焦點摘要與熱門連結 -->
       <img src="extension_sc_2.png" alt="擴充套件介面截圖 2">
     </div>
   </div>
 
-  <!-- 3. 💡 操作流程簡介 (置於畫面截圖下方，保持橘色邊框背景樣式) -->
+  <!-- 3. 操作流程簡介 -->
   <div class="how-to-box-container">
     <div class="orange-card-base">
       <h4>💡 操作流程簡介：</h4>
@@ -269,14 +275,14 @@
     </div>
   </div>
 
-  <!-- 4. 特色賣點 (標題與邊框均統一為橘色系，並包含懸浮位移效果) -->
+  <!-- 4. 特色賣點（整齊對齊的網格） -->
   <section class="features-grid">
     <div class="feature-card">
       <div class="icon">🏷️</div>
       <h3>關鍵字動態 Top 5</h3>
       <p>即時追蹤市場熱門搜尋關鍵字，掌握消費者最新的關注焦點與趨勢變化。</p>
     </div>
-    
+
     <div class="feature-card">
       <div class="icon">🔥</div>
       <h3>Top 5 熱門品牌榜</h3>
